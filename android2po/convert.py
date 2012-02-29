@@ -497,6 +497,8 @@ def xml2po(file, translations=None, filter=None, warnfunc=dummy_warn):
 
             for index, item in enumerate(org_value):
                 item_trans = trans_value[item].text if item in trans_value else u''
+                if org_value[item].text == item_trans:
+                    item_trans = u''
 
                 # If the string has formatting markers, indicate it in the gettext output
                 flags = []
